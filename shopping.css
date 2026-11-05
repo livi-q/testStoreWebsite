@@ -4,25 +4,45 @@ body {
     box-sizing: border-box;
     overflow-x: hidden;
     font-size: 20px;
-    background-color: var(--petal);
+    background-color: var(--seagrass);
 } 
+*{
+    margin: 0;
+    padding: 0;
+}
 
 :root{
     --mauveShadow: #493843;
     --seagrass: #61988E;
     --taupe:#D2DAD5;
-    --petal:#E4DEDC;
+    --snow:#FBF0EF;
     --coral:#FFADAD;
 }
 
+.itemScroll{
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.5%;
+    row-gap: 2.5%;
+}
+
 .card{
-    background-color: #61988E;
-    border-radius: 1;
+    background-color: var(--snow);
+    border-radius: 2.5%;
 
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.5%;
+    width: 20%;
 }
 
 .itemImage{
-    width: 20vw
+    width: 100%;
 }

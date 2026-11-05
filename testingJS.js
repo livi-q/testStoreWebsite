@@ -1,4 +1,5 @@
-let stocks = [{ Die: "Frazzetto glasses", price: 1.00, category: "human, Frazzetto", img : "itemImage/glasses.jpg", clicks: 0},
+let stocks = [
+{ Die: "Frazzetto glasses", price: 1.00, category: "human, Frazzetto", img : "itemImage/glasses.jpg", clicks: 0},
 { Die : "Frazzetto skin", price: 900.00, category: "human, Frazzetto", img : "itemImage/#.png", clicks: 0},
 { Die : "Frazzetto right eyeball", price: 8.00, category: "human, Frazzetto", img : "itemImage/FeyeR.png", clicks: 0},
 { Die : "Frazzetto left eyeball", price: 102.00, category: "human, Frazzetto", img : "itemImage/FeyeL.png", clicks: 0},
