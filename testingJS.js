@@ -29,7 +29,10 @@ let cart = {
     // item : {Die : "Item Name", amount: "Amount", price: 0},
 }
 let total = 0
-const codes = ["ellapoopyshoeisomgnlse"]
+
+const discountCodes = [{code: "ellapoopyshoeisomgnlse", discount : .85},
+{code: "miacookieyumyum", discount : .85},
+]
 
 stocks.forEach(function(print){console.log(`[Item Name: ${print.Die}] Price $${print.price}`)})
 
@@ -67,7 +70,14 @@ function getTotal(cart){
 }
 
 function financialAid(total , financialAid){
-    if (financialAid )
+    found = discountCodes.find(({code}) => code === financialAid)
+    if (found){
+        total = total * found.discount
+        return "Discount Added!!"
+    }
+    else{
+        return false
+    }
 }
 
 function  sort(desricption){
