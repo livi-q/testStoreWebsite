@@ -2,8 +2,8 @@ let stocks = [
 { Die: "Frazzetto glasses", price: 1.00, category: "human, Frazzetto", img : "itemImage/glasses.jpg", clicks: 0},
 { Die : "Frazzetto skin", price: 900.00, category: "human, Frazzetto", img : "itemImage/skin.png", clicks: 0},
 { Die : "Frazzetto right eyeball", price: 8.00, category: "human, Frazzetto", img : "itemImage/FeyeR.png", clicks: 0},
-{ Die : "Frazzetto left eyeball", price: 102.00, category: "human, Frazzetto", img : "itemImage/FeyeL.png", clicks: 0},
 { Die : "Frazzetto teeth", price: 1.00, category: "human, Frazzetto", img : "itemImage/fTeeth.png", clicks: 0},
+{ Die : "Frazzetto left eyeball", price: 102.00, category: "human, Frazzetto", img : "itemImage/FeyeL.png", clicks: 0},
 { Die : "Frazzetto bubble tea", price: 6.50, category: "food, Frazzetto", img : "itemImage/fBoba.png", clicks: 0},
 { Die : "We're playing Magic after school today", price: 0.50, category: "chud", img : "itemImage/magic.png", clicks: 0},
 { Die : "lmaooooo wth", price: 30.90, category: "chud", img : "itemImage/lmaoWth.png", clicks: 0},
@@ -31,7 +31,7 @@ stocks.forEach(function(item){
         thign.dataset.item= `${item.Die}`
 
         thign.innerHTML=`<img src=${item.img} class="itemImage">
-            <p class="itemName">${item.Die} -- $${item.price}</p>`
+            <p class="itemName">${item.Die} °•*➜$${item.price}</p>`
 
         main.appendChild(thign);
     })   
