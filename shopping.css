@@ -1,51 +1,105 @@
 body {
     margin: 0;
-    padding: 0;
+    padding:0;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     overflow-x: hidden;
     font-size: 20px;
-    background-color: var(--seagrass);
+    background-color: var(--snow);
 } 
 *{
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 :root{
-    --mauveShadow: #493843;
+    --chocolate: #4D3D38;
     --seagrass: #61988E;
-    --taupe:#D2DAD5;
-    --snow:#FBF0EF;
+    --snow:#D2DAD5;
+    --cream:#FBF0EF;
     --coral:#FFADAD;
 }
 
-#
+.nav{
+    height: 20vh;
+    display: flexbox;
+    position: relative;
+}
 
+#navImage{
+    height: 100%;
+    min-width: 100vw;
+    object-fit:contain ;
+    position: absolute;
+}
 
-.itemScroll{
-    overflow-y: scroll;
-    overflow-x: hidden;
+#shoppingBtn{
+    height: 80%;
+    position: absolute;
+    right: 5%;
+    top:5%;
+}
 
+#title{
+    max-height: 15%;
+    max-width: 80%;
+    
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.main{
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2.5%;
-    row-gap: 2.5%;
+
+    gap: 5vh 2.5%;
+    justify-content: space-evenly;
+    align-items: normal;
+
+    background-color: var(--chocolate);
+    border-radius: 5.5vw;
+    height: fit-content;
+    min-height: 50vh;
+    width: 95%;
+
+    margin: 5% auto 2.5%;
+    padding: 3% 0 ;
 }
 
 .card{
-    background-color: var(--snow);
-    border-radius: 2.5%;
+    background-color: var(--cream);
+    border-radius: 5vw;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    padding: 1.5%;
-    width: 20%;
+    padding: 0;
+    width: 40%;
+    height: fit-content;
+    min-height: 60vh;
 }
 
 .itemImage{
-    width: 100%;
+    object-fit:cover;
+    object-position: center;
+    width:80%;
+    height: 50vh;
+    border-radius: 2.5vw;
+    margin-top: 10%;
+}
+
+.itemName{
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  size: 10vh !important;
+  color: var(--chocolate);
+  
+  margin: 10% 0px;
 }
