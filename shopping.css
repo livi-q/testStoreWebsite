@@ -23,7 +23,7 @@ body {
 
 .nav{
     height: 20vh;
-    display: flexbox;
+    display: flex;
     position: relative;
 }
 
