@@ -78,6 +78,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center ;
+    text-decoration: none;
 
     padding: 0;
     width: 40%;
@@ -99,9 +100,29 @@ body {
   font-weight: 600;
   font-style: normal;
   font-size: 5vh;
+  
   text-wrap-mode: wrap;
   max-width: 90%;
   color: var(--chocolate);
   
   margin: 5% 0px;
+}
+
+
+/* Modal Button */
+
+
+.close-btn {
+  position: absolute;
+  top: 110px;              
+  right: 400px;            
+  background: none;
+  border: none;
+  color: #afafaf;        
+  font-size: 32px;        
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: transform 0.1s ease, color 0.1s ease;
 }

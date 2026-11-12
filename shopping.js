@@ -26,7 +26,7 @@ let stocks = [
 
 stocks.forEach(function(item){
         const main = document.getElementById("main")
-        const thign = document.createElement('div')
+        const thign = document.createElement('a')
         thign.classList.add('card');
         thign.dataset.item= `${item.Die}`
 
@@ -35,3 +35,6 @@ stocks.forEach(function(item){
 
         main.appendChild(thign);
     })   
+
+
+c
