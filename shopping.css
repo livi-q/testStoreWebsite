@@ -3,7 +3,6 @@ body {
     padding:0;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
     overflow-x: hidden;
     background-color: var(--snow);
 } 
@@ -65,7 +64,7 @@ body {
     min-height: 50vh;
     width: 95%;
 
-    margin: 5% auto 2.5%;
+    margin: 5% auto 2.5% auto;
     padding: 3% 0 ;
 }
 
@@ -109,13 +108,47 @@ body {
 }
 
 
-/* Modal Button */
+/* Modal stuff */
+.modal{
+    /* display: none; */
+    position:fixed;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgb(77, 61, 56, .7);
+    animation-name: modalopen;
+    animation-duration: .5s;
+}
+
+.buyCard{
+    background-color: rgb(251, 240, 239);
+    opacity: 1;
+    padding: 40px ;
+    container-type: inline-size;
+       
+    width: 600px;
+    height: 400px;
+
+    margin:auto;
+    margin-top: 100px;
+
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+}
+
+
+@keyframes modalopen{
+    from{opacity: 0;}
+    to{opacity:  1;}
+}
 
 
 .close-btn {
-  position: absolute;
-  top: 110px;              
-  right: 400px;            
+  position: relative;            
   background: none;
   border: none;
   color: #afafaf;        
