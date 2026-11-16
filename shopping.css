@@ -20,6 +20,47 @@ body {
     --coral:#FFADAD;
 }
 
+h1, .title{
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7.5vh;
+  
+  text-wrap-mode: wrap;
+  max-width: 90%;
+  color: var(--chocolate);
+  
+  margin: 0px 5vw 0px 10vh;
+}
+
+h2, .itemName{
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 5vh;
+  
+  text-wrap-mode: wrap;
+  max-width: 90%;
+  color: var(--chocolate);
+  
+  margin: 2.5vh 0vw 5vh 10vh;
+}
+
+h3, .sub{
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3.5vh;
+  
+  text-wrap-mode: wrap;
+  max-width: 90%;
+  color: var(--chocolate);
+  
+  margin: 5vh 10vh;
+}
+
+
+
 .nav{
     height: 20vh;
     display: flex;
@@ -79,7 +120,7 @@ body {
     text-align: center ;
     text-decoration: none;
 
-    padding: 0;
+    padding: 2.5vh;
     width: 40%;
     height: fit-content;
     min-height: 60vh;
@@ -110,7 +151,6 @@ body {
 
 /* Modal stuff */
 .modal{
-    /* display: none; */
     position:fixed;
     top: 0;
     right: 0;
@@ -121,6 +161,8 @@ body {
     background-color: rgb(77, 61, 56, .7);
     animation-name: modalopen;
     animation-duration: .5s;
+    
+    overflow: hidden;
 }
 
 .buyCard{
@@ -129,13 +171,13 @@ body {
     padding: 40px ;
     container-type: inline-size;
        
-    width: 600px;
-    height: 400px;
+    width: 60vw;
+    height: 80vh;
 
     margin:auto;
     margin-top: 100px;
 
-    border-radius: 20px;
+    border-radius: 5.5vw;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
 }
@@ -146,16 +188,40 @@ body {
     to{opacity:  1;}
 }
 
+.organize{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.display{
+    width: 45%;
+}
+
+.displayimg{
+    object-fit:cover;
+    object-position: center;
+    border-radius: 2.5vw;
+    width: 100%;
+    height: 100%;
+}
 
 .close-btn {
   position: relative;            
   background: none;
   border: none;
-  color: #afafaf;        
-  font-size: 32px;        
+
+  color: #afafaf; 
+
+  font-size: 5vh;        
   font-weight: bold;
   cursor: pointer;
   line-height: 1;
-  padding: 0;
+
+  padding: 0 1vw;
   transition: transform 0.1s ease, color 0.1s ease;
+}
+.close-btn:hover{
+    color: var(--coral)
 }

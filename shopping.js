@@ -25,16 +25,29 @@ let stocks = [
 ]
 
 stocks.forEach(function(item){
-        const main = document.getElementById("main")
-        const thign = document.createElement('a')
-        thign.classList.add('card');
-        thign.dataset.item= `${item.Die}`
+    const main = document.getElementById("main")
+    const thign = document.createElement('a')
+    thign.classList.add('card');
+    thign.dataset.item= `${item.Die}`
 
-        thign.innerHTML=`<img src=${item.img} class="itemImage">
-            <p class="itemName">${item.Die} °•*➜$${item.price}</p>`
+    thign.innerHTML=`<img src=${item.img} class="itemImage">
+        <p class="itemName">${item.Die} °•*➜$${item.price}</p>`
 
-        main.appendChild(thign);
-    })   
+    main.appendChild(thign);
+})   
 
 
-c
+
+const btn = document.getElementById("close-btn")
+const modal = document.getElementById("modal")
+btn.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+//click to get card
+let cards = document.getElementsByClassName("card")
+Array.from(cards).forEach(function(item){
+    item.addEventListener("click", function(){
+        modal.style.display = "flex";
+    })
+})
