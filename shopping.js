@@ -19,7 +19,7 @@ let stocks = [
 { Die : "Oliver (white cat) pelt", price: 18000.00, category: "clothes", img : "itemImage/oliver.png", clicks: 0},
 { Die : "Toxoplasmosis", price: 4.00, category: "food", img : "itemImage/toxoplasmosis.jpg", clicks: 0},
 { Die : "Litterbox nerds cluster", price: 27.00, category: "food", img : "itemImage/litterboxNerds.jpg", clicks: 0},
-{ Die : "Used toilet paper", price: 67.00, category: "clothes, food", img : "itemImage/litterboxNerds.jpg", clicks: 0},
+{ Die : "Used sanitary paper", price: 67.00, category: "clothes, food", img : "itemImage/usedtp.jpg", clicks: 0},
 { Die : "Joann chocolate (lightly used)", price: 300.00, category: "food", img : "itemImage/joannChoco.jpg", clicks: 0},
 { Die : "Cooking Tree", price: 100000000.00, category: "food", img : "itemImage/cookingtree.png", clicks: 0},
 ]
@@ -70,6 +70,12 @@ if (cards) {
                     <h3 class = sub> Categories: ${category} </h3>
                     <h3 class = sub> Price : $${price}</h3>
                     <h3 class = sub> Cart:</h3>
+                    <div class="addCart">
+                        <img src="design/addcart.png" class="bg">
+                        <button class= editcartbutton id = plusbtn>&plus;</button>
+                        <button class= editcartbutton id = minusbtn>&minus;</button>
+                        <h3 class = sub id = numero>#</h3>
+                    </div>
                 </div>
                 <div class="display">
                     <img src="${img}" class="displayimg">
