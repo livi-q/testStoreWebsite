@@ -208,10 +208,11 @@ h3, .sub{
 
 .display{
     width: 45%;
+    height: 50vh;
 }
 
 .displayimg{
-    object-fit:cover;
+    object-fit: cover;
     object-position: center;
     border-radius: 2.5vw;
     width: 100%;

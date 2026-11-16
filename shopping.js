@@ -1,26 +1,27 @@
 let stocks = [
-{ Die: "Frazzetto glasses", price: 1.00, category: "human, Frazzetto", img : "itemImage/glasses.jpg", clicks: 0},
-{ Die : "Frazzetto skin", price: 900.00, category: "human, Frazzetto", img : "itemImage/skin.png", clicks: 0},
+{ Die: "Frazzetto extremely 'Stylish' glasses", price: 1.00, category: "human, Frazzetto", img : "itemImage/glasses.jpg", clicks: 0},
+{ Die : "Frazzetto skin (unethically sourced)", price: 900.00, category: "human, Frazzetto", img : "itemImage/skin.png", clicks: 0},
 { Die : "Frazzetto right eyeball", price: 8.00, category: "human, Frazzetto", img : "itemImage/FeyeR.png", clicks: 0},
-{ Die : "Frazzetto teeth", price: 1.00, category: "human, Frazzetto", img : "itemImage/fTeeth.png", clicks: 0},
+{ Die : "Frazzetto teeth (good condition)", price: 1.00, category: "human, Frazzetto", img : "itemImage/fTeeth.png", clicks: 0},
 { Die : "Frazzetto left eyeball", price: 102.00, category: "human, Frazzetto", img : "itemImage/FeyeL.png", clicks: 0},
-{ Die : "Frazzetto bubble tea", price: 6.50, category: "food, Frazzetto", img : "itemImage/fBoba.png", clicks: 0},
+{ Die : "Frazzetto bubble tea ", price: 6.50, category: "disease, food, Frazzetto,", img : "itemImage/fBoba.png", clicks: 0},
 { Die : "We're playing Magic after school today", price: 0.50, category: "chud", img : "itemImage/magic.png", clicks: 0},
-{ Die : "lmaooooo wth", price: 30.90, category: "chud", img : "itemImage/lmaoWth.png", clicks: 0},
-{ Die : "Sock", price: 7.00, category: "clothes", img : "itemImage/socks.png", clicks: 0},
+{ Die : "lmaooooo wth from Frazzetto Phone", price: 30.90, category: "chud, Frazzetto", img : "itemImage/lmaoWth.png", clicks: 0},
+{ Die : "Ella Sock (Shoe not included)", price: 7.00, category: "clothes", img : "itemImage/socks.png", clicks: 0},
 { Die : "Whalen missing hair", price: 0.01, category: "human, chud, clothes, Whalen", img : "itemImage/wMissingHair.png", clicks: 0},
-{ Die : "Whalen bald patch", price: -20.00, category: "human, chud, clothes, Whalen", img : "itemImage/wbaldPatch.png", clicks: 0},
+{ Die : "Whalen bald patch", price: -20.99, category: "human, chud, clothes, Whalen", img : "itemImage/wbaldPatch.png", clicks: 0},
 { Die : "Whalen address from eva", price: 50.00, category: "chud", img : "itemImage/whouse.jpg", clicks: 0},
 { Die : "Poopyshoes", price: 200.00, category: "clothes", img : "itemImage/ellashoe.jpg", clicks: 0},
-{ Die : "Ella", price: 12.26, category: "human", img : "itemImage/ella.png", clicks: 0},
-{ Die : "Mia", price: 1.04, category: "human", img : "itemImage/mia.png", clicks: 0},
-{ Die : "Eva's Dog Skinwalker", price: 8900.00, category: "human, food", img : "itemImage/#.jpg", clicks: 0},
-{ Die : "My brown cat ellie", price: 0.00, category: "human, food", img : "itemImage/elio.png", clicks: 0},
+{ Die : "Ella J adoption", price: 12.26, category: "human", img : "itemImage/ella.png", clicks: 0},
+{ Die : "Mia L adoption", price: 1.04, category: "human", img : "itemImage/mia.png", clicks: 0},
+{ Die : "Eva's Dog", price: 89.00, category: "human, food", img : "itemImage/evadog.jpg", clicks: 0},
+{ Die : "brown cat ellie fermented black beans", price: 0.00, category: "human, food", img : "itemImage/elio.png", clicks: 0},
 { Die : "Oliver (white cat) pelt", price: 18000.00, category: "clothes", img : "itemImage/oliver.png", clicks: 0},
-{ Die : "Toxoplasmosis", price: 4.00, category: "food", img : "itemImage/toxoplasmosis.jpg", clicks: 0},
-{ Die : "Litterbox nerds cluster", price: 27.00, category: "food", img : "itemImage/litterboxNerds.jpg", clicks: 0},
+{ Die : "Virulent Entity", price: 10.06, category: "chud, disease, human, food", img : "itemImage/entity.png", clicks: 0},
+{ Die : "Toxoplasmosis", price: 4.89, category: "food", img : "itemImage/toxoplasmosis.jpg", clicks: 0},
+{ Die : "Litterbox nerds cluster", price: 28.88, category: "food", img : "itemImage/litterboxNerds.jpg", clicks: 0},
 { Die : "Used sanitary paper", price: 67.00, category: "clothes, food", img : "itemImage/usedtp.jpg", clicks: 0},
-{ Die : "Joann chocolate (lightly used)", price: 300.00, category: "food", img : "itemImage/joannChoco.jpg", clicks: 0},
+{ Die : "Joann chocolate (lightly used)", price: 380.41, category: "food", img : "itemImage/joannChoco.jpg", clicks: 0},
 { Die : "Cooking Tree", price: 100000000.00, category: "food", img : "itemImage/cookingtree.png", clicks: 0},
 ]
 let cart = {
@@ -36,7 +37,7 @@ stocks.forEach(function(item){
     thign.dataset.item= `${item.Die}`
 
     thign.innerHTML=`<img src=${item.img} class="itemImage">
-        <p class="itemName">${item.Die} °•*➜$${item.price}</p>`
+        <p class="itemName">${item.Die} °•*➜$${item.price.toFixed(2)}</p>`
 
     main.appendChild(thign);
 })   
@@ -144,18 +145,22 @@ function  remoivcat(cart, item){
     const itemFound = stocks.find(({Die}) => Die === item)
     if (itemFound){console.log(itemFound.Die)} else {return "This item does not exist;";}
     let Die = itemFound.Die
+
+    //html updates
+    let numero = document.getElementById("numero")
+    if (cart[Die].amount < 1){
+        numero.innerHTML = `0`
+        cart = cart.filter((item)=> item != Die)
+        console.log(cart)
+        return
+    }
     cart[Die] ? cart[Die].amount -=1 : null;
-    if (cart[Die].amount < 1)  {delete cart.Die}
+    numero.innerHTML = cart[Die].amount
+    
     //cart.push({Die : itemFound.Die, amount: 1, price: itemFound.price})
     // Object.entries(cart).forEach(([key, element]) => {
     //     console.log(element)
     // })  
-
-    let numero = document.getElementById("numero")
-    if (cart[Die].amount < 1)  {
-        numero.innerHTML = `0`
-    }else
-    {
-        numero.innerHTML = cart[Die].amount
-    }
+    
+    
 }
