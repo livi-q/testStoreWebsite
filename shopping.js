@@ -23,6 +23,11 @@ let stocks = [
 { Die : "Joann chocolate (lightly used)", price: 300.00, category: "food", img : "itemImage/joannChoco.jpg", clicks: 0},
 { Die : "Cooking Tree", price: 100000000.00, category: "food", img : "itemImage/cookingtree.png", clicks: 0},
 ]
+let cart = {
+    // item : {Die : "Item Name", amount: "Amount", price: 0},
+}
+let total = 0
+
 
 stocks.forEach(function(item){
     const main = document.getElementById("main")
@@ -37,56 +42,120 @@ stocks.forEach(function(item){
 })   
 
 
-
-
 const modal = document.getElementById("modal")
 
 //click to get card
 let cards = document.getElementsByClassName("card")
 if (cards) {
-  Array.from(cards).forEach(function(item){
-    let x = stocks.find(({Die}) => Die === item.dataset.item)
-    if (!(item.dataset.item)){
-        return
-    }
-    
-    let Die = x.Die
-    let price = x.price
-    let category = x.category
-    let img = x.img
-    
-    item.addEventListener("click", function(){
-        modal.style.display = "flex";
-        const card = document.createElement("div")
-        card.classList.add("buyCard")
-        card.id = "buyCard"
-        card.innerHTML =   `
-            <button type="button" class="close-btn" id = "close-btn">&times;</button>
-            <h1 class = title>Product Information</h1>
+    Array.from(cards).forEach(function(card1){
+        let x = stocks.find(({Die}) => Die === card1.dataset.item)
+        if (!(card1.dataset.item)){
+            return
+        }
 
-            <div class="organize">
-                <div class="info">
-                    <h2 class = itemname>${Die}</h2>
-                    <h3 class = sub> Categories: ${category} </h3>
-                    <h3 class = sub> Price : $${price}</h3>
-                    <h3 class = sub> Cart:</h3>
-                    <div class="addCart">
-                        <img src="design/addcart.png" class="bg">
-                        <button class= editcartbutton id = plusbtn>&plus;</button>
-                        <button class= editcartbutton id = minusbtn>&minus;</button>
-                        <h3 class = sub id = numero>#</h3>
+        let Die = x.Die
+        let price = x.price
+        let category = x.category
+        let img = x.img
+
+        card1.addEventListener("click", function(){
+            modal.style.display = "flex";
+            const card = document.createElement("div")
+            card.classList.add("buyCard")
+            card.id = "buyCard"
+            //making the card ot the thing
+            card.innerHTML =   `
+                <button type="button" class="close-btn" id = "close-btn">&times;</button>
+                <h1 class = title>Product Information</h1>
+
+                <div class="organize">
+                    <div class="info">
+                        <h2 class = itemname>${Die}</h2>
+                        <h3 class = sub> Categories: ${category} </h3>
+                        <h3 class = sub> Price : $${price}</h3>
+                        <h3 class = sub> Cart:</h3>
+                        <div class="addCart">
+                            <img src="design/addcart.png" class="bg">
+                            <button class= editcartbutton id = plusbtn>&plus;</button>
+                            <button class= editcartbutton id = minusbtn>&minus;</button>
+                            <h3 class = sub id = numero></h3>
+                        </div>
                     </div>
-                </div>
-                <div class="display">
-                    <img src="${img}" class="displayimg">
-                </div>
-            </div>`
-        modal.appendChild(card);
-        const btn = document.getElementById("close-btn")
-        btn.addEventListener("click", function() {
-            modal.style.display = "none";
-            card.remove();
-        });
-    })
-})  
+                    <div class="display">
+                        <img src="${img}" class="displayimg">
+                    </div>
+                </div>`
+            modal.appendChild(card); 
+            //close bn
+            const xbtn = document.getElementById("close-btn")
+            xbtn.addEventListener("click", function() {
+                modal.style.display = "none";
+                card.remove();
+            });
+
+            //functional butn
+            const plusbtn = document.getElementById("plusbtn")
+            plusbtn.addEventListener("click", ()=>{
+                adcat(cart, card1.dataset.item);
+            })
+            const minusbtn = document.getElementById("minusbtn")
+            minusbtn.addEventListener("click", ()=>{
+                remoivcat(cart, card1.dataset.item)
+            });
+
+            //linkign thr cart
+            let numero = document.getElementById("numero")
+            if (cart[card1.dataset.item])  {
+                numero.innerHTML = cart[card1.dataset.item].amount
+            }else
+            {
+                numero.innerHTML = `0`
+                
+            }
+            
+        })
+    })  
+}
+
+
+
+function  adcat(cart, item){
+    const itemFound = stocks.find(({Die}) => Die === item)
+    if (itemFound){console.log(itemFound.Die)} else {return "Nothing Added";}
+    
+    let title = itemFound.Die
+    cart[title]? cart[title].amount +=1: cart[title]= {Die : itemFound.Die, amount: 1, price: itemFound.price}
+    //cart.push({Die : itemFound.Die, amount: 1, price: itemFound.price})
+    // Object.entries(cart).forEach(([key, element]) => {
+    //     console.log(element)
+    // })   
+    console.log(cart)
+    let numero = document.getElementById("numero")
+    if (cart[title].amount < 1)  {
+        numero.innerHTML = `0`
+        
+    }else
+    {
+        numero.innerHTML = cart[title].amount
+    }
+}
+
+function  remoivcat(cart, item){
+    const itemFound = stocks.find(({Die}) => Die === item)
+    if (itemFound){console.log(itemFound.Die)} else {return "This item does not exist;";}
+    let Die = itemFound.Die
+    cart[Die] ? cart[Die].amount -=1 : null;
+    if (cart[Die].amount < 1)  {delete cart.Die}
+    //cart.push({Die : itemFound.Die, amount: 1, price: itemFound.price})
+    // Object.entries(cart).forEach(([key, element]) => {
+    //     console.log(element)
+    // })  
+
+    let numero = document.getElementById("numero")
+    if (cart[Die].amount < 1)  {
+        numero.innerHTML = `0`
+    }else
+    {
+        numero.innerHTML = cart[Die].amount
+    }
 }
