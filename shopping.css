@@ -26,7 +26,7 @@ h1, .title{
   font-style: normal;
   font-size: 7.5vh;
   
-  text-wrap-mode: wrap;
+  text-wrap-mode: nowrap;
   max-width: 90%;
   color: var(--chocolate);
   
@@ -43,7 +43,7 @@ h2, .itemName{
   max-width: 90%;
   color: var(--chocolate);
   
-  margin: 2.5vh 0vw 5vh 10vh;
+  margin: 0vh 0vw 5vh 5vh;
 }
 
 h3, .sub{
@@ -56,7 +56,7 @@ h3, .sub{
   max-width: 90%;
   color: var(--chocolate);
   
-  margin: 5vh 10vh;
+  margin: 5vh 5vh;
 }
 
 
@@ -124,6 +124,8 @@ h3, .sub{
     width: 40%;
     height: fit-content;
     min-height: 60vh;
+
+    cursor: pointer;
 }
 
 .itemImage{
@@ -151,12 +153,17 @@ h3, .sub{
 
 /* Modal stuff */
 .modal{
+    display: none;
     position:fixed;
     top: 0;
     right: 0;
     z-index: 5;
     height: 100%;
     width: 100%;
+    
+    justify-content: center;
+    align-items: center;
+
     overflow: auto;
     background-color: rgb(77, 61, 56, .7);
     animation-name: modalopen;
@@ -168,14 +175,15 @@ h3, .sub{
 .buyCard{
     background-color: rgb(251, 240, 239);
     opacity: 1;
-    padding: 40px ;
+    padding: 10vh ;
     container-type: inline-size;
        
     width: 60vw;
     height: 80vh;
+    min-height: 550px;
 
     margin:auto;
-    margin-top: 100px;
+    margin-top: 5vh;
 
     border-radius: 5.5vw;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
@@ -193,6 +201,8 @@ h3, .sub{
     flex-direction: row;
     justify-content: space-between;
     align-content: flex-start;
+
+    margin-top: 5vh;
 }
 
 .display{

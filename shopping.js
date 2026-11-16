@@ -38,16 +38,49 @@ stocks.forEach(function(item){
 
 
 
-const btn = document.getElementById("close-btn")
+
 const modal = document.getElementById("modal")
-btn.addEventListener("click", function() {
-  modal.style.display = "none";
-});
 
 //click to get card
 let cards = document.getElementsByClassName("card")
-Array.from(cards).forEach(function(item){
+if (cards) {
+  Array.from(cards).forEach(function(item){
+    let x = stocks.find(({Die}) => Die === item.dataset.item)
+    if (!(item.dataset.item)){
+        return
+    }
+    
+    let Die = x.Die
+    let price = x.price
+    let category = x.category
+    let img = x.img
+    
     item.addEventListener("click", function(){
         modal.style.display = "flex";
+        const card = document.createElement("div")
+        card.classList.add("buyCard")
+        card.id = "buyCard"
+        card.innerHTML =   `
+            <button type="button" class="close-btn" id = "close-btn">&times;</button>
+            <h1 class = title>Product Information</h1>
+
+            <div class="organize">
+                <div class="info">
+                    <h2 class = itemname>${Die}</h2>
+                    <h3 class = sub> Categories: ${category} </h3>
+                    <h3 class = sub> Price : $${price}</h3>
+                    <h3 class = sub> Cart:</h3>
+                </div>
+                <div class="display">
+                    <img src="${img}" class="displayimg">
+                </div>
+            </div>`
+        modal.appendChild(card);
+        const btn = document.getElementById("close-btn")
+        btn.addEventListener("click", function() {
+            modal.style.display = "none";
+            card.remove();
+        });
     })
-})
+})  
+}
