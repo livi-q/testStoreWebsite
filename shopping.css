@@ -43,7 +43,7 @@ h2, .itemName{
   max-width: 90%;
   color: var(--chocolate);
   
-  margin: 0vh 0vw 5vh 5vh;
+  margin: 0vh 0vw 5vh 0vh;
 }
 
 h3, .sub{
@@ -56,7 +56,7 @@ h3, .sub{
   max-width: 90%;
   color: var(--chocolate);
   
-  margin: 5vh 5vh;
+  margin: 5vh 0vh;
 }
 
 
@@ -123,7 +123,7 @@ h3, .sub{
     padding: 2.5vh;
     width: 40%;
     height: fit-content;
-    min-height: 60vh;
+    min-height: 70vh;
 
     cursor: pointer;
 }
@@ -158,8 +158,8 @@ h3, .sub{
     top: 0;
     right: 0;
     z-index: 5;
-    height: 100%;
-    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
     
     justify-content: center;
     align-items: center;
@@ -169,22 +169,20 @@ h3, .sub{
     animation-name: modalopen;
     animation-duration: .5s;
     
-    overflow: hidden;
+
 }
 
 .buyCard{
     background-color: rgb(251, 240, 239);
     opacity: 1;
-    padding: 10vh ;
-    container-type: inline-size;
+    padding: 7.5vh 5vw 2.5vh;
        
     width: 60vw;
     min-width: 800px;
-    height: 80vh;
+    /* height: 90vh; */
     min-height: 550px;
 
     margin:auto;
-    margin-top: 5vh;
 
     border-radius: 5.5vw;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
@@ -215,16 +213,16 @@ h3, .sub{
     object-fit: cover;
     object-position: center;
     border-radius: 2.5vw;
-    width: 100%;
-    height: 100%;
+    width: 25vw;
+    height: 60vh;
 }
 
 .addCart{
     display: flex;
     flex-direction: row;
 
-    width: 60%;
-    height:20%;
+    width: fit-content;
+    height: 15vh;
 
     justify-content: center;
     align-items: center;
@@ -271,7 +269,7 @@ h3, .sub{
 }
 
 .close-btn {
-  position: relative;            
+  position: absolute;            
   background: none;
   border: none;
 
@@ -282,7 +280,8 @@ h3, .sub{
   cursor: pointer;
   line-height: 1;
 
-  padding: 0 1vw;
+  padding: 0 0vw;
+  margin: 0;
   transition: transform 0.5s ease, color 0.5s ease;
 }
 .close-btn:hover{
