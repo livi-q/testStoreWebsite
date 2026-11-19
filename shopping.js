@@ -6,7 +6,7 @@ let stocks = [
 { Die : "Frazzetto left eyeball", price: 102.00, category: "human, Frazzetto", img : "itemImage/FeyeL.png", clicks: 0},
 { Die : "Frazzetto bubble tea ", price: 6.50, category: "disease, food, Frazzetto,", img : "itemImage/fBoba.png", clicks: 0},
 { Die : "We're playing Magic after school today", price: 0.50, category: "chud", img : "itemImage/magic.png", clicks: 0},
-{ Die : "lmaooooo wth ", price: 30.90, category: "chud, Frazzetto", img : "itemImage/lmaoWth.png", clicks: 0},
+{ Die : "lmaooooooo wth ", price: 30.90, category: "chud, Frazzetto", img : "itemImage/lmaoWth.png", clicks: 0},
 { Die : "Ella Sock (Shoe not included)", price: 7.00, category: "clothes", img : "itemImage/socks.png", clicks: 0},
 { Die : "Whalen missing hair", price: 0.01, category: "human, chud, clothes, Whalen", img : "itemImage/wMissingHair.png", clicks: 0},
 { Die : "Whalen bald patch", price: -20.99, category: "human, chud, clothes, Whalen", img : "itemImage/wbaldPatch.png", clicks: 0},
@@ -147,7 +147,7 @@ function  remoivcat(cart, item){
 
     //html updates
     let numero = document.getElementById("numero")
-    if (cart[Die].amount = 1){
+    if (cart[Die].amount == 1){
         numero.innerHTML = `0`
         delete cart[Die]
         console.log(cart)
