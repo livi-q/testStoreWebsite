@@ -183,19 +183,19 @@ openCart.addEventListener("click", function(){
             <h2 id = total>Total: $${total}</h2>
             <button id = buyBtn>Buy</button>`
 
-    const scrollCart = document.getElementById("scrollCart")
-
-    // cart.forEach(function(item){
-    //     scrollCart.innerHTML += `
-    //     <div class="cartItems">
-    //         <h3 style="max-width: 90%; margin: 0;">${item.Die}</h3>
-    //         <h3 class="num"> ${item.amount}</h3>
-    //     </div>
-    //     `
-    // })
+    
 
     modal.appendChild(card); 
+    const scrollCart = document.getElementById("scrollCart")
 
+    Array.from(cart).forEach(function(item){
+        scrollCart.innerHTML += `
+        <div class="cartItems">
+            <h3 style="max-width: 90%; margin: 0;">${item.Die}</h3>
+            <h3 class="num"> ${item.amount}</h3>
+        </div>
+        `
+    })
     //close bn
     const xbtn = document.getElementById("close-btn")
     xbtn.addEventListener("click", function() {
