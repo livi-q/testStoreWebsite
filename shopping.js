@@ -117,7 +117,7 @@ if (cards) {
     })  
 }
 
-
+//ACTUALLY CART FUNCTIONING
 
 function  adcat(cart, item){
     const itemFound = stocks.find(({Die}) => Die === item)
@@ -147,14 +147,15 @@ function  remoivcat(cart, item){
 
     //html updates
     let numero = document.getElementById("numero")
-    if (cart[Die].amount < 1){
+    if (cart[Die].amount = 1){
         numero.innerHTML = `0`
-        cart = cart.filter((item)=> item != Die)
+        delete cart[Die]
         console.log(cart)
         return
     }
     cart[Die] ? cart[Die].amount -=1 : null;
     numero.innerHTML = cart[Die].amount
+    console.log(cart)
     
     //cart.push({Die : itemFound.Die, amount: 1, price: itemFound.price})
     // Object.entries(cart).forEach(([key, element]) => {
@@ -172,6 +173,8 @@ openCart.addEventListener("click", function(){
     card.classList.add("cartCard")
     card.id = "cartCard"
 
+    total = getTotal(cart)
+
     card.innerHTML =   `
             <button type="button" class="close-btn" id = "close-btn">&times;</button>
             <h2 class = title >Your Cart</h2>
@@ -186,7 +189,6 @@ openCart.addEventListener("click", function(){
 
     modal.appendChild(card); 
     const scrollCart = document.getElementById("scrollCart")
-    console.log(cart)
     Object.values(cart).forEach(function(item){
         scrollCart.innerHTML += `
         <div class="cartItems">
@@ -194,7 +196,6 @@ openCart.addEventListener("click", function(){
             <h3 class="num"> x${item.amount}</h3>
         </div>
         `
-        console.log(item)
     })
 
     console.log(cart)
@@ -205,3 +206,14 @@ openCart.addEventListener("click", function(){
         card.remove();
     });
 });
+
+
+//REGISTER CHECKOUT COUNTING
+function getTotal(cart){
+    let temporary = 0
+    Object.entries(cart).forEach(([key, element]) => {
+        temporary += element.price * element.amount 
+    });
+    total = temporary
+    return total
+}
