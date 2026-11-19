@@ -29,7 +29,6 @@ let cart = {
 }
 let total = 0
 
-
 stocks.forEach(function(item){
     const main = document.getElementById("main")
     const thign = document.createElement('a')
@@ -177,7 +176,7 @@ openCart.addEventListener("click", function(){
             <button type="button" class="close-btn" id = "close-btn">&times;</button>
             <h2 class = title >Your Cart</h2>
 
-            <div class="scrollCart">
+            <div class="scrollCart" id="scrollCart">
             </div>
 
             <h2 id = total>Total: $${total}</h2>
@@ -187,15 +186,18 @@ openCart.addEventListener("click", function(){
 
     modal.appendChild(card); 
     const scrollCart = document.getElementById("scrollCart")
-
-    Array.from(cart).forEach(function(item){
+    console.log(cart)
+    Object.values(cart).forEach(function(item){
         scrollCart.innerHTML += `
         <div class="cartItems">
             <h3 style="max-width: 90%; margin: 0;">${item.Die}</h3>
-            <h3 class="num"> ${item.amount}</h3>
+            <h3 class="num"> x${item.amount}</h3>
         </div>
         `
+        console.log(item)
     })
+
+    console.log(cart)
     //close bn
     const xbtn = document.getElementById("close-btn")
     xbtn.addEventListener("click", function() {
