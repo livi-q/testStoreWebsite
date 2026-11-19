@@ -164,3 +164,42 @@ function  remoivcat(cart, item){
     
     
 }
+
+// OPEN CART BTN
+const openCart = document.getElementById("shoppingBtn")
+openCart.addEventListener("click", function(){
+    modal.style.display = "flex";
+    const card = document.createElement("div")
+    card.classList.add("cartCard")
+    card.id = "cartCard"
+
+    card.innerHTML =   `
+            <button type="button" class="close-btn" id = "close-btn">&times;</button>
+            <h2 class = title >Your Cart</h2>
+
+            <div class="scrollCart">
+            </div>
+
+            <h2 id = total>Total: $${total}</h2>
+            <button id = buyBtn>Buy</button>`
+
+    const scrollCart = document.getElementById("scrollCart")
+
+    // cart.forEach(function(item){
+    //     scrollCart.innerHTML += `
+    //     <div class="cartItems">
+    //         <h3 style="max-width: 90%; margin: 0;">${item.Die}</h3>
+    //         <h3 class="num"> ${item.amount}</h3>
+    //     </div>
+    //     `
+    // })
+
+    modal.appendChild(card); 
+
+    //close bn
+    const xbtn = document.getElementById("close-btn")
+    xbtn.addEventListener("click", function() {
+        modal.style.display = "none";
+        card.remove();
+    });
+});

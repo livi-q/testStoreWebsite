@@ -5,6 +5,8 @@ body {
     justify-content: center;
     overflow-x: hidden;
     background-color: var(--snow);
+    
+    scrollbar-color: var(--snow) transparent;
 } 
 *{
     margin: 0;
@@ -17,7 +19,7 @@ body {
     --seagrass: #61988E;
     --snow:#D2DAD5;
     --cream:#FBF0EF;
-    --coral:#FFADAD;
+    --coral:#FCC6C2;
 }
 
 h1, .title{
@@ -153,7 +155,7 @@ h3, .sub{
 
 /* Modal stuff */
 .modal{
-    /* display: none; */
+    display: none;
     position:fixed;
     top: 0;
     right: 0;
@@ -316,18 +318,50 @@ h3, .sub{
 .scrollCart{
     overflow-x: hidden;
     overflow-y: scroll;
+    scrollbar-color: var(--snow) transparent;
 
     margin: 5vh 0vw 0;
     height: 75%;
     width: auto;
+    
 }
 
 .cartItems{
     background-color: white;
-
+    display: flex;
+    align-items: center;
     height: fit-content;
-    width: 100%;
-    border-radius: 1.5vw;
+    max-width: 100%;
 
+    border-radius: 2.5vw;
+    margin: 0 0 2.5% 0;
     padding: 2.5vh ;
+}
+
+.num{
+    position: absolute;
+    right: 5%;
+}
+
+#total{
+    margin-top: 5%;
+    margin-left: 1%;
+}
+
+#buyBtn{
+    position: absolute;
+    right:20%;
+    top: 89.5%;
+
+    background-color: var(--coral);
+    border:none;
+    border-radius: 5vw;
+    padding:2.5% 5%;
+
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: white;
+
 }
