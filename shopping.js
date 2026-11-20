@@ -10,7 +10,7 @@ let stocks = [
 { Die : "Ella Sock (Shoe not included)", price: 7.00, category: "clothes", img : "itemImage/socks.png", clicks: 0},
 { Die : "Whalen missing hair", price: 0.01, category: "human, chud, clothes, Whalen", img : "itemImage/wMissingHair.png", clicks: 0},
 { Die : "Whalen bald patch", price: -20.99, category: "human, chud, clothes, Whalen", img : "itemImage/wbaldPatch.png", clicks: 0},
-{ Die : "178 olympia blvd", price: 50.00, category: "chud", img : "itemImage/whouse.jpg", clicks: 0},
+{ Die : "Whalen address from eva", price: 50.00, category: "chud", img : "itemImage/whouse.jpg", clicks: 0},
 { Die : "Poopyshoes ella", price: 200.00, category: "clothes", img : "itemImage/ellashoe.jpg", clicks: 0},
 { Die : "Ella J adoption", price: 12.26, category: "human", img : "itemImage/ella.png", clicks: 0},
 { Die : "Mia L adoption", price: 100.04, category: "human", img : "itemImage/mia.png", clicks: 0},
